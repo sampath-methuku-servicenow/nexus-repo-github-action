@@ -18,7 +18,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 
 
-let tagName="${9}_${RANDOM}_${RANDOM}";
+let tagName="Tag_${9}_${RANDOM}_${RANDOM}";
 
 curl -v -u "$2:$3" -X POST --header 'Content-Type: application/json' "${1}service/rest/v1/tags" -d "{ \"name\": \"$tagName\", \"attributes\": { \"repo_name\": \"$5\" }}"
 
