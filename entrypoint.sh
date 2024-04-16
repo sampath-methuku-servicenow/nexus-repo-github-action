@@ -26,6 +26,7 @@ curl -v -u admin:admin -X POST --header 'Content-Type: application/json' http://
     }
 }'
 
+echo """ curl -v -u "$2:$3" -X POST --header 'Content-Type: application/json' $1/service/rest/v1/tags  -d "{ 'name': $9,'attributes': {'repo_name':$5}}"  """
 
 curl -v -u "$2:$3" -X POST --header 'Content-Type: application/json' $1/service/rest/v1/tags  -d "{ 'name': $9,'attributes': {'repo_name':$5}}"
 
