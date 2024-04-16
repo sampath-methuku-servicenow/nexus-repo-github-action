@@ -20,7 +20,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 curl -v -u admin:admin -X POST --header 'Content-Type: application/json' http://13.54.106.6:8081/service/rest/v1/tags \
   -d '{
-    "name": "testing",
+    "name": "testing12",
     "attributes": {
         "repo_name":"maven_repo"
     }
