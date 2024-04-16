@@ -19,6 +19,7 @@ LABEL com.github.actions.name="Nexus Repository Publisher for GitHub Actions" \
 USER root
 
 RUN apk add --no-cache sed
+RUN apk add --no-cache curl
 
 COPY entrypoint.sh /entrypoint.sh
 

@@ -26,6 +26,9 @@ inputs:
   filename:
     description: 'File to publish'
     required: true
+  tagname:
+    description: 'TagName'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -38,6 +41,7 @@ runs:
     - ${{ inputs.coordinates }}
     - ${{ inputs.assets }}
     - ${{ inputs.filename }}
+    - ${{ inputs.tagname }}
 branding:
   icon: 'package'
   color: 'gray-dark'
