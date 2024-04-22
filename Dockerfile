@@ -19,7 +19,9 @@ LABEL com.github.actions.name="Nexus Repository Publisher for GitHub Actions" \
 USER root
 
 RUN apk add --no-cache sed
+RUN apk add --no-cache curl
 
+COPY NexusPublisherUpdated.groovy /opt/sonatype/bin/NexusPublisherUpdated.groovy 
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -17,4 +17,14 @@
 export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 
-groovy /opt/sonatype/bin/NexusPublisher.groovy --serverurl $1 --username $2 --password $3 --format $4 --repository $5 --filename $GITHUB_WORKSPACE/$8 $(echo -C$6 | sed 's/ / -C/g') $(echo -A$7 | sed 's/ / -A/g')
+
+echo "Given values $1   $2  $3 $4  $5  $6  $7  $8 $9"
+
+
+
+curl -v -u "$2:$3" -X POST --header 'Content-Type: application/json' "${1}service/rest/v1/tags" -d "{ \"name\": \"$9\", \"attributes\": { \"repo_name\": \"$5\" }}"
+
+
+
+
+groovy /opt/sonatype/bin/NexusPublisherUpdated.groovy --serverurl $1 --username $2 --password $3 --format $4 --repository $5 --tagname $9 --filename $GITHUB_WORKSPACE/$8 $(echo -C$6 | sed 's/ / -C/g') $(echo -A$7 | sed 's/ / -A/g') 
